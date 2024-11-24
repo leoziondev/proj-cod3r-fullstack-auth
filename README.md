@@ -4,6 +4,26 @@ O objetivo deste projeto é implementar uma solução robusta de autenticação 
 
 ### Develop
 
+Instalar dependências
+
+```
+pnpm i
+```
+
+Criar cópia do arquivo /apps/backend/.env.example e renomear para /apps/backend/.env e configurar as variaveis de ambiente
+
+Levantar base de dados docker na pasta /apps/backend/
+
+```
+docker compose up -d
+```
+
+Como finalizar docker na pasta /apps/backend/
+
+```
+docker compose down
+```
+
 Como rodar o projeto
 
 ```
