@@ -36,6 +36,18 @@ Como rodar comandos prisma com pnpm
 pnpx prisma ...
 ```
 
+PROJETO FRONTEND
+
+```
+http://localhost:3000
+```
+
+PROJETO BACKEND
+
+```
+http://localhost:4000
+```
+
 ## Docs
 
 - [Turborepo](https://turbo.build/repo/docs)
