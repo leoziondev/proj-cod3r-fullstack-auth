@@ -10,7 +10,7 @@ Instalar dependências
 pnpm i
 ```
 
-Criar cópia do arquivo /apps/backend/.env.example e renomear para /apps/backend/.env e configurar as variaveis de ambiente
+Criar cópia do arquivo /apps/backend/.env.example e renomear para /apps/backend/.env
 
 Levantar base de dados docker na pasta /apps/backend/
 
@@ -28,6 +28,12 @@ Como rodar o projeto
 
 ```
 pnpm run dev
+```
+
+Como rodar comandos prisma com pnpm
+
+```
+pnpx prisma ...
 ```
 
 ## Docs
