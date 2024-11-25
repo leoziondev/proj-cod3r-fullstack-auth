@@ -4,11 +4,13 @@ O objetivo deste projeto é implementar uma solução robusta de autenticação 
 
 ### Develop
 
-Instalar dependências
+Instalar dependências na pasta raiz do projeto
 
 ```
 pnpm i
 ```
+obs: para instalar o pnpm: https://pnpm.io/pt/installation
+
 
 Criar cópia do arquivo /apps/backend/.env.example e renomear para /apps/backend/.env
 
@@ -24,8 +26,7 @@ Como finalizar docker na pasta /apps/backend/
 docker compose down
 ```
 
-Como rodar o projeto
-
+Como rodar o projeto na pasta raiz do projeto
 ```
 pnpm run dev
 ```
@@ -37,6 +38,8 @@ pnpx prisma ...
 ```
 
 PROJETO FRONTEND
+
+
 
 ```
 http://localhost:3000
