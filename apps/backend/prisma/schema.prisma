@@ -20,10 +20,10 @@ model Usuario {
   senha        String   
   createdAt    DateTime @default(now())
   ativo        Boolean
-  segundoFator Boolean
-  telefone     String   @db.VarChar(14)
-  imagemUrl    String 
-  perfil       Perfil[]
+  autenticacao Boolean
+  telefone     String   @db.Char(14)
+  imagem       String 
+  perfis       Perfil[]
 }
 
 model Perfil {
@@ -32,9 +32,10 @@ model Perfil {
   descricao   String    @db.VarChar(255)
   createdAt   DateTime  @default(now())
   ativo       Boolean
-  usuario     Usuario   @relation(fields: [usuarioId], references: [id])
-  usuarioId   Int       
-  perfil      Permissao[]
+  usuarioId   Usuario   @relation(fields: [usuario], references: [id])
+  usuario     Int
+  permissoes  Permissao[]
+  
 }
 
 model Permissao {
@@ -43,6 +44,6 @@ model Permissao {
   descricao   String    @db.VarChar(255)
   createdAt   DateTime  @default(now())
   ativo       Boolean
-  perfil      Perfil    @relation(fields: [perfilId], references: [id])
-  perfilId    Int
+  perfilId    Perfil    @relation(fields: [perfil], references: [id])
+  perfil      Int
 }
