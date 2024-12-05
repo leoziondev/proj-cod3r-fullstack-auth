@@ -23,7 +23,7 @@ model Usuario {
   autenticacao Boolean
   telefone     String   @db.Char(14)
   imagem       String 
-  perfis       Perfil[]
+  perfis       PerfisDosUsuarios[]
 }
 
 model Perfil {
@@ -32,10 +32,17 @@ model Perfil {
   descricao   String    @db.VarChar(255)
   createdAt   DateTime  @default(now())
   ativo       Boolean
-  usuarioId   Usuario   @relation(fields: [usuario], references: [id])
-  usuario     Int
-  permissoes  Permissao[]
-  
+  usuarios    PerfisDosUsuarios[]
+  permissoes  PermissoesDosPerfis[]
+}
+
+model PerfisDosUsuarios {
+  usuarioId  Usuario   @relation(fields: [usuario], references: [id])
+  usuario    Int
+  perfilId   Perfil    @relation(fields: [perfil], references: [id])
+  perfil     Int
+
+  @@id([usuario, perfil])
 }
 
 model Permissao {
@@ -44,6 +51,14 @@ model Permissao {
   descricao   String    @db.VarChar(255)
   createdAt   DateTime  @default(now())
   ativo       Boolean
+  perfis      PermissoesDosPerfis[]
+}
+
+model PermissoesDosPerfis {
   perfilId    Perfil    @relation(fields: [perfil], references: [id])
   perfil      Int
+  permissaoId Permissao @relation(fields: [permissao], references: [id])
+  permissao   Int
+
+  @@id([perfil, permissao])
 }
