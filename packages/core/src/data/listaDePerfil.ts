@@ -1,8 +1,9 @@
+import { Perfil } from "../domain";
 import { listaDePermissao } from "./listaDePermissao";
 import { listaDeUsuario } from "./listaDeUsuario";
 
 // Perfis
-export const listaDePerfil = [
+export const listaDePerfil:Perfil[] = [
     {
       id: '1',
       tipo: 'Administrador',

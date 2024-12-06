@@ -1,11 +1,14 @@
-export const listaDePermissao = [
+import { Permissao } from "../domain";
+import { listaDePerfil } from "./listaDePerfil";
+
+export const listaDePermissao:Permissao[] = [
     {
       id: '1',
       tipo: 'admin',
       descricao: 'Acesso completo ao sistema',
       createAt: new Date(),
       ativo: true,
-      perfis: [],
+      perfis: [listaDePerfil[0]],
     },
     {
       id: '2',

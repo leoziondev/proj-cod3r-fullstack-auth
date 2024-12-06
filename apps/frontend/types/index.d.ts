@@ -13,6 +13,3 @@ declare interface HeaderBoxProps {
     perfil?: string;
     apelido?: string;
 }
-
-
-

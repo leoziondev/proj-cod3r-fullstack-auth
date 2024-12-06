@@ -1,6 +1,7 @@
 import React from 'react'
 
-const HeaderBox = ({ nickName, role, user, email }: HeaderBoxProps) => {
+
+const HeaderBox = ({ usuario, perfil, apelido, email }: HeaderBoxProps) => {
   return (
     <div id="containerHeaderBox" 
         className="grid 
@@ -10,8 +11,8 @@ const HeaderBox = ({ nickName, role, user, email }: HeaderBoxProps) => {
         <div id="containerContext"
             className="justify-self-start
         ">
-            <h1>{nickName}</h1>
-            <h2>{role}</h2>
+            <h1>{apelido}</h1>
+            <h2>{perfil}</h2>
         </div>
         <div id="containerUser" 
             className="justify-self-end
@@ -19,7 +20,7 @@ const HeaderBox = ({ nickName, role, user, email }: HeaderBoxProps) => {
         ">
             <div>Avatar</div>
             <div id="containerDataUSer">
-                <div>{user}</div>
+                <div>{usuario}</div>
                 <div>{email}</div>
             </div>
         </div>

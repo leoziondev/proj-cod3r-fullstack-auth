@@ -1,5 +1,5 @@
 import Perfil from "./Perfil";
 import Permissao from "./Permissao";
-import Usario from "./Usuario";
+import Usuario from "./Usuario";
 
-export type { Perfil, Permissao, Usario }
+export type { Perfil, Permissao, Usuario }
