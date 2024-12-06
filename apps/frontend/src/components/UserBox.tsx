@@ -1,12 +1,16 @@
 import React from 'react'
 import { Usuario } from '@repo/core'
 
-const UserBox = ({ imagem, nome, email }: Partial<Usuario>) => {
+const UserBox = ({ imagem, usuario, email }: UserBoxProps) => {
   return (
-    <div id="containerUserBox" className='flex'>
+    <div id="containerUserBox" 
+      className="
+        justify-self-end
+        flex gap-4 items-center
+    ">
         <div>{imagem}</div>
         <div id="containerUserData">
-            <div>{nome}</div>
+            <div>{usuario}</div>
             <div>{email}</div>
         </div>
     </div>

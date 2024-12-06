@@ -1,10 +1,14 @@
 import React from 'react'
 
-const HeaderContent = () => {
+const HeaderContent = ({ apelido, perfil }: HeaderContentProps) => {
   return (
-    <div id="containerHeaderContent">
-        <div>Nome Tela</div>
-        <div>Role User</div>
+    <div id="containerHeaderContent"
+      className="
+        justify-self-start
+        flex flex-col justify-center
+      ">
+        <h1>{apelido}</h1>
+        <h2>{perfil}</h2>
     </div>
   )
 }

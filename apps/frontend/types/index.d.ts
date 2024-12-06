@@ -8,8 +8,20 @@ declare type SearchParamProps = {
   // ========================================
 
 declare interface HeaderBoxProps {
-    usuario?: string;
-    email?: string;
-    perfil?: string;
-    apelido?: string;
-}
+    usuario: string;
+    email: string;
+    perfil: string;
+    apelido: string;
+    imagem: string;
+};
+
+declare interface HeaderContentProps {
+  apelido: string;
+  perfil: string;
+};
+
+declare interface UserBoxProps {
+  usuario: string;
+  imagem: string;
+  email: string;
+};

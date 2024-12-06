@@ -1,29 +1,7 @@
-import HeaderBox from "@/components/HeaderBox";
-
 export default function Home() {
-
-  const loggedIn = {
-    user: 'João Marcos Melchiors',
-    nickName: 'Kyptronk',
-    email: 'joao@zmail.com',
-    role: 'Administrador'
-  }
-
-
-  return (
-    <section className="home">
-      <div className="home-content">
-        <div className="home-header">
-            <HeaderBox 
-              nickName={loggedIn.nickName}
-              role={loggedIn.role}
-              user={loggedIn.user}
-              email={loggedIn.email}
-            />
-        </div>
-
-
-      </div>
+   return (
+    <section>
+      Conteudo
     </section>
   );
 }
