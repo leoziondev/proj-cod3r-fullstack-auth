@@ -3,6 +3,7 @@ import Perfil from "./Perfil";
 
 export default interface Usario extends Id{
     nome: string,
+    apelido: string,
     email: string,
     senha: string,
     createAt: Date,
@@ -10,5 +11,5 @@ export default interface Usario extends Id{
     autenticacao: boolean,
     telefone: string,
     imagem: string,
-    perfis?: Perfil[]
+    perfis?: Partial<Perfil>[]
 }

@@ -7,12 +7,9 @@
   display: none;
 }
 
-
-
-
-
 @layer base {
   :root {
+    --sizeHeight: 129px;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -89,11 +86,29 @@
   }
   
   h1 {
-    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+    @apply scroll-m-20 font-extrabold tracking-tight 
+    text-2xl sm:text-3xl md:text-4xl lg:text-5xl
+    transition-all duration-150 ease-in;
   }
   
   h2 {
-    @apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight
-    transition-colors first:mt-0; 
+    @apply scroll-m-20 pb-2 font-semibold tracking-tight
+    first:mt-0
+    text-lg sm:text-xl md:text-2xl lg:text-3xl
+    transition-all duration-150 ease-in;
+  }
+
+  .sidebar {
+    transition: width 300ms ease-in;
+    @apply sticky left-0 top-0
+    h-screen w-[200px] max-md:hidden 2xl:w-[400px]
+    flex flex-col justify-between border-r border-zinc-800 bg-bgSecurity
+    pt-8 sm:p-4 xl:p-6
+    text-zinc-300;
+  }
+
+  .header {
+    @apply grid grid-cols-[1fr_400px] items-center
+    h-default px-6 mt-2;
   }
 }

@@ -10,6 +10,7 @@ export default {
   theme: {
   	extend: {
   		colors: {
+			bgSecurity: "#090909b",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -55,7 +56,10 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		height:{
+			default: 'var(--sizeHeight)'
+		},
   	}
   },
   plugins: [require("tailwindcss-animate")],

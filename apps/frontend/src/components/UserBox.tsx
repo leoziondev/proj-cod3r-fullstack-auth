@@ -1,7 +1,13 @@
 import React from 'react'
-import { Usuario } from '@repo/core'
 
-const UserBox = ({ imagem, usuario, email }: UserBoxProps) => {
+export interface UserBoxProps {
+  imagem: string,
+  nome: string,
+  email: string,
+}
+
+
+const UserBox = ({ imagem, nome, email }: UserBoxProps) => {
   return (
     <div id="containerUserBox" 
       className="
@@ -10,7 +16,7 @@ const UserBox = ({ imagem, usuario, email }: UserBoxProps) => {
     ">
         <div>{imagem}</div>
         <div id="containerUserData">
-            <div>{usuario}</div>
+            <div>{nome}</div>
             <div>{email}</div>
         </div>
     </div>

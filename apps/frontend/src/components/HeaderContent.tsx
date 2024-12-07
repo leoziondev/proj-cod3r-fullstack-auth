@@ -1,5 +1,10 @@
 import React from 'react'
 
+export interface HeaderContentProps {
+  apelido: string,
+  perfil: string,
+}
+
 const HeaderContent = ({ apelido, perfil }: HeaderContentProps) => {
   return (
     <div id="containerHeaderContent"
@@ -8,7 +13,7 @@ const HeaderContent = ({ apelido, perfil }: HeaderContentProps) => {
         flex flex-col justify-center
       ">
         <h1>{apelido}</h1>
-        <h2>{perfil}</h2>
+        <h2>{perfil ?? 'sem perfil'}</h2>
     </div>
   )
 }

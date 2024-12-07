@@ -1,23 +1,33 @@
 import React from 'react'
 import HeaderContent from './HeaderContent'
 import UserBox from './UserBox'
+import { Usuario } from '@repo/core'
 
+export interface HeaderBoxProps {
+  usuario: Partial<Usuario>
+}
 
-const HeaderBox = ({ usuario, perfil, apelido, email, imagem }: HeaderBoxProps) => {
+const HeaderBox = ({ usuario }: HeaderBoxProps) => {
   return (
     <div id="containerHeaderBox" 
-        className="grid 
-        grid-cols-[1fr_400px]
-        items-center
+        className="header
     ">
         <HeaderContent 
-            apelido={apelido} 
-            perfil={perfil} 
+            apelido={usuario.apelido ?? 'sem apelido'}
+            perfil={usuario.perfis ? usuario.perfis.reduce(( acc, perfil ) => {
+              let tmp:string
+              if(!acc) {
+                tmp = perfil.tipo ? perfil.tipo : 'never tuch this'
+              } else {
+                tmp = `${acc}, ${perfil.tipo}` 
+              }
+              return tmp
+            }, '') : 'Sem Perfil'}
         />
         <UserBox 
-            usuario={usuario} 
-            imagem={imagem} 
-            email={email} 
+            nome={usuario.nome ?? 'sem nome'} 
+            imagem={usuario.imagem ?? 'sem imagem'} 
+            email={usuario.email ?? 'sem email'} 
         />
     </div>
   )

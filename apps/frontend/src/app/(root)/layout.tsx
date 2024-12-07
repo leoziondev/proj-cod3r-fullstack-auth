@@ -1,5 +1,6 @@
 import HeaderBox from "@/components/HeaderBox";
 import Sidebar from "@/components/Sidebar";
+import { Usuario } from "@repo/core";
 
 export default function RootLayout({
   children,
@@ -7,11 +8,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const loggedIn = {
-    user: 'João Marcos Melchiors',
-    nickName: 'Kyptronk',
+  const loggedIn:Partial<Usuario> = {
+    nome: 'João Marcos Melchiors',
+    apelido: 'Kyptronk',
     email: 'joao@zmail.com',
-    role: 'Administrador',
+    perfis: [{ tipo: 'Administrador'}, {tipo: 'Moderador'}, {tipo: 'Usuário'}],
     imagem: 'img'
   }
 
@@ -23,12 +24,7 @@ export default function RootLayout({
             flex-1
             flex flex-col 
         ">
-          <HeaderBox 
-            apelido={loggedIn.nickName}
-            perfil={loggedIn.role}
-            usuario={loggedIn.user}
-            email={loggedIn.email} 
-            imagem={loggedIn.imagem}
+          <HeaderBox usuario={loggedIn}                   
           />
           <div className="
             flex-1 
