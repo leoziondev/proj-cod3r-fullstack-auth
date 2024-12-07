@@ -8,7 +8,9 @@ export const listaDePermissao:Permissao[] = [
       descricao: 'Acesso completo ao sistema',
       createAt: new Date(),
       ativo: true,
-      perfis: [listaDePerfil[0]],
+      perfis: [
+        
+      ],
     },
     {
       id: '2',

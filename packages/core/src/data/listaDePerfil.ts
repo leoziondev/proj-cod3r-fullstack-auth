@@ -10,8 +10,8 @@ export const listaDePerfil:Perfil[] = [
       descricao: 'Perfil com todas as permissões',
       createAt: new Date(),
       ativo: true,
-      usuario: [listaDeUsuario[0], listaDeUsuario[3]], // Yuji Itadori e Satoru Gojo
-      permissoes: [listaDePermissao[0]], // Admin
+      usuario: [], // Yuji Itadori e Satoru Gojo
+      permissoes: [], // Admin
     },
     {
       id: '2',
@@ -19,8 +19,8 @@ export const listaDePerfil:Perfil[] = [
       descricao: 'Perfil com permissões de edição',
       createAt: new Date(),
       ativo: true,
-      usuario: [listaDeUsuario[1]], // Megumi Fushiguro
-      permissoes: [listaDePermissao[1]], // Editor
+      usuario: [], // Megumi Fushiguro
+      permissoes: [], // Editor
     },
     {
       id: '3',
@@ -28,7 +28,7 @@ export const listaDePerfil:Perfil[] = [
       descricao: 'Perfil com permissões de visualização',
       createAt: new Date(),
       ativo: true,
-      usuario: [listaDeUsuario[2]], // Nobara Kugisaki
-      permissoes: [listaDePermissao[2]], // Viewer
+      usuario: [], // Nobara Kugisaki
+      permissoes: [], // Viewer
     },
 ];

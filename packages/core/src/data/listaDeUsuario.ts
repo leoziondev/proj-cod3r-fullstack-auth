@@ -5,6 +5,7 @@ export const listaDeUsuario:Usuario[] = [
     {
       id: '1',
       nome: 'Yuji Itadori',
+      apelido: 'Itadori',
       email: 'yuji.itadori@example.com',
       senha: 'senhaSegura123',
       createAt: new Date(),
@@ -17,6 +18,7 @@ export const listaDeUsuario:Usuario[] = [
     {
       id: '2',
       nome: 'Megumi Fushiguro',
+      apelido: 'Megumi',
       email: 'megumi.fushiguro@example.com',
       senha: 'senhaSegura123',
       createAt: new Date(),
@@ -29,6 +31,7 @@ export const listaDeUsuario:Usuario[] = [
     {
       id: '3',
       nome: 'Nobara Kugisaki',
+      apelido: 'Nobara',
       email: 'nobara.kugisaki@example.com',
       senha: 'senhaSegura123',
       createAt: new Date(),
@@ -41,6 +44,7 @@ export const listaDeUsuario:Usuario[] = [
     {
       id: '4',
       nome: 'Satoru Gojo',
+      apelido: 'Sensei Gojo',
       email: 'satoru.gojo@example.com',
       senha: 'senhaSegura123',
       createAt: new Date(),
