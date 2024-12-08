@@ -29,6 +29,7 @@ export default function RootLayout({
           <div className="
             flex-1 
             flex justify-center items-center
+            bg-zinc-700
           ">
             {children}
           </div>
