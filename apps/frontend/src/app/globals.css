@@ -94,6 +94,10 @@
     transition-all duration-150 ease-in;
   }
 
+  .flex-center {
+    @apply flex items-center justify-center
+  }
+
   .sidebar {
     transition: width 500ms ease-in;
     @apply sticky left-0 top-0
