@@ -5,6 +5,7 @@ import Link from "next/link"
 import { menuList } from "../data"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { FaChevronLeft } from "react-icons/fa"
 
 const Sidebar = () => {
 
@@ -29,20 +30,23 @@ const Sidebar = () => {
               <li key={index} className="my-3">
                 <Link 
                   href={itemMenu.route} 
-                  className="grid grid-cols-1 md:grid-cols-[1fr_2fr]">
+                  className="sidebarGrid">
                   <div className={cn("flex justify-center items-center h-10", {"bg-zinc-900": isActive})}>
                     {itemMenu.icon}
                   </div>
-                  <p className={cn("flex items-center max-md:hidden text-lg h-10", {"bg-zinc-900": isActive})}>
-                    {itemMenu.label}
-                  </p>
+                  <div className="itemLabelContainer">
+                    <p className={cn("itemLabel", {"bg-zinc-900": isActive})}>
+                      {itemMenu.label}
+                    </p>
+                  </div>
                 </Link>
               </li>
             )
           })}
         </ul>
       </nav>
-
+      {/*Implementar função para fechar e abrir sidebar*/}
+      <FaChevronLeft className="absolute bottom-4 right-3"/> 
     </section>
   )
 }
