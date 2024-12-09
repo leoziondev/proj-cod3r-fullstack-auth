@@ -1,11 +1,11 @@
 'use client'
 
-import Image from "next/image"
 import Link from "next/link"
 import { menuList } from "../data"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { FaChevronLeft } from "react-icons/fa"
+import Logo from "./ui/Logo"
 
 const Sidebar = () => {
 
@@ -13,13 +13,7 @@ const Sidebar = () => {
 
   return (
     <section className="sidebar">
-      <Link id="containerLogo" href={'/'}
-        className="
-        flex justify-center items-center h-default
-        border-b border-zinc-800
-      ">
-        <Image src={"/LogoSmall.png"} alt={"Logo"} width={162} height={129}/>
-      </Link>
+      <Logo className="border-b border-zinc-800"/>
       <nav className="flex w-full">
         <ul className="flex-1">
           {menuList.map((itemMenu, index)=> {

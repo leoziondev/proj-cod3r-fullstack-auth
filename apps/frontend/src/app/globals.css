@@ -80,18 +80,25 @@
   nav {
     @apply max-w-6xl mx-auto;
   }
-  
-  h1 {
-    @apply scroll-m-20 font-extrabold tracking-tight 
-    text-2xl sm:text-3xl md:text-4xl lg:text-5xl
-    transition-all duration-150 ease-in;
+
+  .text-12 {
+    @apply text-[12px] leading-[16px];
+  }
+
+  .text-14 {
+    @apply text-[14px] leading-[20px];
+  }
+
+  .text-16 {
+    @apply text-[16px] leading-[24px];
   }
   
-  h2 {
-    @apply scroll-m-20 pb-2 font-semibold tracking-tight
-    first:mt-0
-    text-sm sm:text-base md:text-lg lg:text-xl
-    transition-all duration-150 ease-in;
+  .text-24 {
+    @apply text-[24px] leading-[30px];
+  }
+
+  .text-36 {
+    @apply text-[36px] leading-[44px];
   }
 
   .flex-center {
@@ -128,8 +135,56 @@
     h-default px-6;
   }
 
+  .h1-header {
+    @apply scroll-m-20 font-extrabold tracking-tight 
+    text-2xl sm:text-3xl md:text-4xl lg:text-5xl
+    transition-all duration-150 ease-in;
+  }
+  
+  .h2-header {
+    @apply scroll-m-20 pb-2 font-semibold tracking-tight
+    first:mt-0
+    text-sm sm:text-base md:text-lg lg:text-xl
+    transition-all duration-150 ease-in;
+  }
+
   .itemLabelContainerAbsolute {
     @apply absolute left-0
   }
+
+  /* Auth */
+  .auth-asset {
+    @apply flex h-screen w-full sticky top-0 items-center justify-end bg-sky-1 max-lg:hidden;
+  }
+
+  /* Auth Form */
+  .auth-form {
+    @apply flex min-h-screen w-full max-w-[420px] flex-col justify-center gap-5 py-10 md:gap-8;
+  }
+
+  .form-item {
+    @apply flex flex-col gap-1.5;
+  }
+
+  .form-label {
+    @apply text-14 w-full max-w-[280px] font-medium text-zinc-300;
+  }
+
+  .form-message {
+    @apply text-12 text-red-500;
+  }
+
+  .form-btn {
+    @apply text-16 rounded-lg border border-bankGradient bg-bank-gradient font-semibold text-white shadow-form;
+  }
+
+  .form-link {
+    @apply text-14 cursor-pointer font-medium text-bankGradient;
+  }
+
+  .input-class {
+    @apply text-16 placeholder:text-16 rounded-md border border-gray-300 text-white placeholder:text-gray-500;
+  }
+
 
 }

@@ -12,8 +12,8 @@ const HeaderContent = ({ apelido, perfil }: HeaderContentProps) => {
         justify-self-start
         flex flex-col justify-center
       ">
-        <h1>{apelido}</h1>
-        <h2>{perfil ?? 'sem perfil'}</h2>
+        <h1 className="h1-header">{apelido}</h1>
+        <h2 className="h2-header">{perfil ?? 'sem perfil'}</h2>
     </div>
   )
 }
