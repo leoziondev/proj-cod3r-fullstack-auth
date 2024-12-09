@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Usuario {
-  id           Int      @id @default(autoincrement())
+  id           String      @id @default(uuid())
   nome         String   @db.VarChar(100)
   email        String   @unique
   senha        String   
@@ -27,7 +27,7 @@ model Usuario {
 }
 
 model Perfil {
-  id          Int       @id @default(autoincrement())
+  id          String       @id @default(uuid())
   tipo        String
   descricao   String    @db.VarChar(255)
   createdAt   DateTime  @default(now())
@@ -38,15 +38,15 @@ model Perfil {
 
 model PerfisDosUsuarios {
   usuarioId  Usuario   @relation(fields: [usuario], references: [id])
-  usuario    Int
+  usuario    String
   perfilId   Perfil    @relation(fields: [perfil], references: [id])
-  perfil     Int
+  perfil     String
 
   @@id([usuario, perfil])
 }
 
 model Permissao {
-  id          Int       @id @default(autoincrement())
+  id          String      @id @default(uuid())
   tipo        String
   descricao   String    @db.VarChar(255)
   createdAt   DateTime  @default(now())
@@ -56,9 +56,9 @@ model Permissao {
 
 model PermissoesDosPerfis {
   perfilId    Perfil    @relation(fields: [perfil], references: [id])
-  perfil      Int
+  perfil      String
   permissaoId Permissao @relation(fields: [permissao], references: [id])
-  permissao   Int
+  permissao   String
 
   @@id([perfil, permissao])
 }
