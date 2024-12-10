@@ -23,6 +23,7 @@ const CustomInput = <T extends ZodSchema>(props: CustomInputProps<T>) => {
     } = props
 
     const [isFocus, setIsFocus] = useState<boolean>(false)
+    const [showText, setShowText] = useState<boolean>(false)
 
     return (
     <FormField
@@ -37,23 +38,41 @@ const CustomInput = <T extends ZodSchema>(props: CustomInputProps<T>) => {
                 </FormLabel>
                 <div className="flex flex-col items-center w-full relative">
                     <FormControl>
-                        <Input
-                            id={id}
-                            placeholder={placeholder}
-                            type={type}
-                            className="input-class"
-                            onClick={() => setIsFocus(true)}
-                            onBlur={() => setIsFocus(false)}
-                            {...fieldProps}
-                        />             
+                        {showText ? (
+                                <Input
+                                id={id}
+                                placeholder={placeholder}
+                                type={"text"}
+                                className="placeholder:text-red-500 input-class"
+                                onClick={() => setIsFocus(true)}
+                                onBlur={() => setIsFocus(false)}
+                                {...fieldProps}
+                            />        
+                        ) : (
+                            <Input
+                                id={id}
+                                placeholder={placeholder}
+                                type={type}
+                                className="input-class"
+                                onClick={() => setIsFocus(true)}
+                                onBlur={() => setIsFocus(false)}
+                                {...fieldProps}
+                            />             
+
+                        )}
                     </FormControl>
                     
-                    <div className={`absolute text-zinc-600 top-[10px] right-2 ${isFocus && 'text-zinc-300'}`}>
+                    <div onMouseDown={(e) => e.preventDefault()} 
+                    onClick={( ) => setShowText(!showText)}
+                    className={`absolute cursor-pointer z-10 text-zinc-600 top-[12px] 
+                    right-2 ${isFocus /*não está aplicando*/ && "text-yellow-400"}`}>
                         {icon}
                     </div>
                     
                 </div>
-                { showMessage && <FormMessage className={`form-message ${className}`} /> }
+                <div id="containerFormMessag" className='min-h-[20px]'>
+                    { showMessage && <FormMessage className={`form-message ${className}`} /> }
+                </div>
             </div>
         )}}
     />

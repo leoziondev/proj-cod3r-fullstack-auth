@@ -169,6 +169,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.1
+      '@types/tailwindcss':
+        specifier: ^3.1.0
+        version: 3.1.0
       eslint:
         specifier: ^8
         version: 8.57.1
@@ -1948,6 +1951,15 @@ packages:
     dependencies:
       '@types/methods': 1.1.4
       '@types/superagent': 8.1.9
+    dev: true
+
+  /@types/tailwindcss@3.1.0:
+    resolution: {integrity: sha512-JxPzrm609hzvF4nmOI3StLjbBEP3WWQxDDJESqR1nh94h7gyyy3XSl0hn5RBMJ9mPudlLjtaXs5YEBtLw7CnPA==}
+    deprecated: This is a stub types definition. tailwindcss provides its own type definitions, so you do not need this installed.
+    dependencies:
+      tailwindcss: 3.4.15
+    transitivePeerDependencies:
+      - ts-node
     dev: true
 
   /@types/through@0.0.33:

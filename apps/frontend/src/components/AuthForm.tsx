@@ -20,7 +20,8 @@ import { Input } from "@/components/ui/input"
 import { userSchema } from '@/validations/UsuarioSchema';
 import CustomInput from './CustomInput';
 import { MdOutlineEmail } from 'react-icons/md';
-import { FaRegEye } from 'react-icons/fa';
+import { FaGoogle, FaRegEye } from 'react-icons/fa';
+import Link from 'next/link';
 
 
 export interface AuthFormProps {
@@ -56,11 +57,11 @@ const AuthForm = ({ type }: AuthFormProps ) => {
 
     return (
         <section className="auth-form">
-            <div className='bg-zinc-900 rounded-md px-10 py-8 h-[600px]'>
+            <div className='bg-zinc-900 rounded-md px-10 py-8 h-[700px]'>
                 <header className="flex flex-col">
                     <Logo />
                     <div className="flex flex-col items-center">
-                        <h1 className="text-sm lg:text-2xl
+                        <h1 className="text-sm lg:text-base
                         font-semibold text-white mb-10">
                             {user
                                 ? 'link acount'
@@ -78,7 +79,7 @@ const AuthForm = ({ type }: AuthFormProps ) => {
                 ):(
                     <>
                         <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 h-[270px] relative">
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 h-[300px] relative">
                                 <CustomInput
                                     id={'1'} 
                                     control= {form.control}
@@ -97,14 +98,35 @@ const AuthForm = ({ type }: AuthFormProps ) => {
                                     showMessage={false}
                                     icon={<FaRegEye />}
                                 />
-                                <p className='w-full text-end mt-0 absolute text-zinc-700 bottom-[80px]'>Esqueceu a Senha?</p>
-                                <Button type="submit" className='w-full bg-green-500 brightness-125 absolute bottom-0'
+                                <p className='w-full text-end mt-0 absolute text-zinc-700 bottom-[100px]'>Esqueceu a Senha?</p>
+                                <Button type="submit" className='form-btn'
                                 >
                                     Submit
                                 </Button>
                             </form>
                         </Form>
-
+                        <div className='flex w-full items-center mt-4'>
+                            <div className='bg-zinc-700 rounded-lg h-[1px] flex-1 mr-3'></div>
+                            <div className='text-zinc-700 text-16'>ou</div>
+                            <div className='bg-zinc-700 rounded-lg h-[1px] flex-1 ml-3'></div>
+                        </div>
+                        <div id="containerGoogle" className='flex-center w-full mt-4'>
+                            <div className='flex-center bg-red-500 rounded-full h-12 w-12'>
+                                <FaGoogle />
+                            </div>
+                        </div>
+                        <div className='flex flex-col justify-center items-center mt-4 w-full '>
+                            <div className='flex items-center gap-1 text-16'>
+                                <p>Ainda não possui a sua conta?</p>
+                                <p className='text-green-600'>
+                                    Cadastre-se
+                                    <Link href={'/sign-up'} className='ml-1'><u>aqui.</u></Link>
+                                </p>
+                            </div>
+                            <div className='text-sm text-zinc-500'>
+                                <p>ou faça login pelo Google clicando no G acima.</p>
+                            </div>
+                        </div>
 
                     </>
                 )}

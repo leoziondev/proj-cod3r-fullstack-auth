@@ -169,15 +169,18 @@
   }
 
   .form-field {
-    @apply border-none 
+    @apply border-none           
   }
 
   .form-message {
-    @apply text-12 text-red-500;
+    @apply text-12 text-red-500 min-h-[20px] flex;
   }
 
   .form-btn {
-    @apply text-16 rounded-lg border border-bankGradient bg-bank-gradient font-semibold text-white shadow-form;
+    @apply text-16 font-semibold w-full 
+    bg-green-500 brightness-125 absolute 
+    bottom-0 shadow-form
+    hover:bg-red-700 /*não está aplicando*/
   }
 
   .form-link {
@@ -185,7 +188,9 @@
   }
 
   .input-class {
-    @apply text-16 placeholder:text-16 rounded-md text-white placeholder:text-red-600
+    @apply text-16 placeholder:text-16 
+    rounded-md text-white 
+    placeholder:text-zinc-700 /*não está aplicando*/
     focus:border focus:border-blue-700 focus:brightness-200;
   }
 
