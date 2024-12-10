@@ -19,6 +19,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { userSchema } from '@/validations/UsuarioSchema';
 import CustomInput from './CustomInput';
+import { MdOutlineEmail } from 'react-icons/md';
+import { FaRegEye } from 'react-icons/fa';
 
 
 export interface AuthFormProps {
@@ -54,55 +56,59 @@ const AuthForm = ({ type }: AuthFormProps ) => {
 
     return (
         <section className="auth-form">
-            <header className="flex flex-col gap-5 md:gap-8">
-                <Logo />
-                <div className="flex flex-col gap-1 md:gap-3">
-                    <h1 className="text-24 lg:text-36
-                    font-semibold text-white">
-                        {user
-                            ? 'link acount'
-                            : type === 'sign-in'
-                                ? 'Sign In'
-                                : 'Sign Up'
-                        }
-                    </h1>
-                    <p className="text-16 font-normal
-                    text-zinc-200">
-                        {user
-                            ? 'Alguma coisa'
-                            : 'Por favor outra coisa'
-                        }
-                    </p>
-                </div>
-            </header>
-            {user ? (
-                <div className="flex flex-col gap-4">
-                    {/*Saida para usuario autenticado*/}
-                </div>
-            ):(
-                <>
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                            <CustomInput 
-                                control= {form.control}
-                                nameControl={'email'} 
-                                labelName={'E-mail'} 
-                                placeholder={'Digite seu e-mail'}
-                            />
-                            <CustomInput 
-                                control= {form.control}
-                                nameControl={'senha'} 
-                                labelName={'Senha'} 
-                                placeholder={'Digite sua senha'}
-                                type="password"
-                                showMessage={false}
-                            />
-                            <Button type="submit">Submit</Button>
-                        </form>
-                    </Form>
-                </>
-            )}
-        
+            <div className='bg-zinc-900 rounded-md px-10 py-8 h-[600px]'>
+                <header className="flex flex-col">
+                    <Logo />
+                    <div className="flex flex-col items-center">
+                        <h1 className="text-sm lg:text-2xl
+                        font-semibold text-white mb-10">
+                            {user
+                                ? 'link acount'
+                                : type === 'sign-in'
+                                    ? 'Entre com a sua conta'
+                                    : 'Sign Up'
+                            }
+                        </h1>
+                    </div>
+                </header>
+                {user ? (
+                    <div className="flex flex-col gap-4">
+                        {/*Saida para usuario autenticado*/}
+                    </div>
+                ):(
+                    <>
+                        <Form {...form}>
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 h-[270px] relative">
+                                <CustomInput
+                                    id={'1'} 
+                                    control= {form.control}
+                                    nameControl={'email'} 
+                                    labelName={'E-mail'} 
+                                    placeholder={'Digite seu e-mail'}
+                                    icon={<MdOutlineEmail />}
+                                />
+                                <CustomInput
+                                    id={'2'}
+                                    control= {form.control}
+                                    nameControl={'senha'} 
+                                    labelName={'Senha'} 
+                                    placeholder={'Digite sua senha'}
+                                    type="password"
+                                    showMessage={false}
+                                    icon={<FaRegEye />}
+                                />
+                                <p className='w-full text-end mt-0 absolute text-zinc-700 bottom-[80px]'>Esqueceu a Senha?</p>
+                                <Button type="submit" className='w-full bg-green-500 brightness-125 absolute bottom-0'
+                                >
+                                    Submit
+                                </Button>
+                            </form>
+                        </Form>
+
+
+                    </>
+                )}
+            </div>
         </section>
     )
 }
