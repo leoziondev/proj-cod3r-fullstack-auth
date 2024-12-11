@@ -23,7 +23,9 @@ export const userSchema = z.object({
       .regex(/[A-Z]/, { message: "A senha deve conter pelo menos uma letra maiúscula" }) 
       .regex(/[\W_]/, { message: "A senha deve conter pelo menos um caractere especial" }) 
       .max(20, { message: "A senha deve ter no máximo 20 caracteres" }),
-      
+    repetirSenha: z
+      .string()
+      .min(1, { message: "Campo repetir senha é obrigatório" }),
     telefone: z
       .string()
       .min(1, {message: "Campo telefone é obrigatório"})
@@ -38,4 +40,4 @@ export const userSchema = z.object({
       .refine((data) => data === undefined || data.length > 0, {
         message: "O campo perfis não pode estar vazio",
       })
-});
+})

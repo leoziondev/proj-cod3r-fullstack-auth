@@ -12,7 +12,7 @@ export interface CustomInputProps <T extends ZodSchema>{
     placeholder: string;
     type?: string;
     showMessage?: boolean;
-    icon: NonNullable<ReactNode>;
+    icon?: NonNullable<ReactNode>;
     className?: string;
 }
 
