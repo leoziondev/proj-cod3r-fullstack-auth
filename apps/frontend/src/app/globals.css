@@ -194,4 +194,12 @@
     focus:border focus:border-blue-700 focus:brightness-200;
   }
 
+  .input-icon {
+    @apply absolute top-3 right-0 mr-2 text-zinc-700
+  }
+
+  .input-class:focus ~ div {
+    @apply text-white
+  }
+
 }
