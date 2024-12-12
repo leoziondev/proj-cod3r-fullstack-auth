@@ -9,6 +9,16 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import Logo from "./ui/logo";
 
 import { BsBox } from "react-icons/bs";
@@ -18,7 +28,7 @@ import { TbReport } from "react-icons/tb";
 // Menu items.
 const items = [
   {
-    title: "gerenciar",
+    title: "Gerenciar",
     url: "#",
     icon: FiUser,
   },
@@ -34,22 +44,48 @@ const items = [
   },
 ];
 
+const profiles = [
+  {
+    name: "Administrador",
+  },
+  {
+    name: "Moderador",
+  },
+  {
+    name: "Usuário",
+  },
+];
+
 export function AppSidebar() {
   return (
-    <Sidebar collapsible="icon" variant="inset">
-      <SidebarHeader>
-        <Logo />
+    <Sidebar variant="inset">
+      <SidebarHeader className="flex justify-center items-center">
+        <Logo size="small" />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupContent>
-            <SidebarMenu>
+          <SidebarGroupContent className="flex flex-col items-center">
+            <Select>
+              <SelectTrigger className="w-[180px] bg-[#27272A]">
+                <SelectValue placeholder="Perfil de acesso" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {profiles.map((profile) => (
+                    <SelectItem key={profile.name} value={profile.name}>
+                      <span>{profile.name}</span>
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+            <SidebarMenu className="mt-10">
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild className="flex justify-center">
                     <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
+                      <item.icon className="mr-4" />
+                      <span className="hover:font-semibold">{item.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
