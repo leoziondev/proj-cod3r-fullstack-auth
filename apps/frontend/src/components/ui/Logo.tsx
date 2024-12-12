@@ -1,25 +1,19 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 import Image from "next/image";
 
-export interface LogoProps {
-    width?: number,
-    height?: number,
-    className?: string;
-}
-
-const Logo = (props:LogoProps) => {
-  const { width = 162, height = 129, className = ''} = props
-
+const Logo = () => {
   return (
-    <Link id="containerLogo" href={'/'}
-        className={`
-        flex justify-center items-center h-[${height}px]
-        ${className}
-    `}>
-        <Image src={"/LogoSmall.png"} alt={"Logo"} width={width} height={height}/>
-  </Link>
-  )
-}
+    <Link href="#">
+      <Image
+        priority
+        src={"/images/logo.svg"}
+        alt={"Logo"}
+        width={133}
+        height={100}
+      />
+    </Link>
+  );
+};
 
-export default Logo
+export default Logo;

@@ -1,21 +1,15 @@
-import React from 'react'
+import React from "react";
 
-export interface HeaderContentProps {
-  apelido: string,
-  perfil: string,
-}
+export type HeaderContentProps = {
+  perfil: string;
+};
 
-const HeaderContent = ({ apelido, perfil }: HeaderContentProps) => {
-  return (
-    <div id="containerHeaderContent"
-      className="
-        justify-self-start
-        flex flex-col justify-center
-      ">
-        <h1 className="h1-header">{apelido}</h1>
-        <h2 className="h2-header">{perfil ?? 'sem perfil'}</h2>
-    </div>
-  )
-}
+const user: HeaderContentProps = {
+  perfil: "Administrador",
+};
 
-export default HeaderContent
+const HeaderContent = () => {
+  return <h1 className="text-[25px] font-semibold">{user.perfil}</h1>;
+};
+
+export default HeaderContent;
