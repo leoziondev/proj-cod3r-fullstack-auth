@@ -1,7 +1,7 @@
 import Id from "./Id";
 import Perfil from "./Perfil";
 
-export default interface Usario extends Id{
+export default interface Usuario extends Id{
     nome: string,
     apelido: string,
     email: string,
