@@ -58,7 +58,7 @@ const profiles = [
 
 export function AppSidebar() {
   return (
-    <Sidebar variant="inset">
+    <Sidebar variant="inset" side="left">
       <SidebarHeader className="flex justify-center items-center">
         <Logo size="small" />
       </SidebarHeader>

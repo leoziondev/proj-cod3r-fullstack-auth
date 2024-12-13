@@ -1,9 +1,11 @@
+import Content from "@/components/Content";
 import Header from "@/components/Header";
 
 export default function Home() {
   return (
-    <section>
+    <section className="sm:px-11 pr-5">
       <Header />
+      <Content />
     </section>
   );
 }
