@@ -15,7 +15,7 @@ const user: UserBoxProps = {
 
 const UserBox = () => {
   return (
-    <div className="justify-self-end flex gap-4 items-center">
+    <div className="justify-self-end flex items-center gap-5 border-l-2 pl-8 border-white">
       <Avatar>
         <AvatarImage src={user.image} />
         <AvatarFallback>{user.name}</AvatarFallback>
