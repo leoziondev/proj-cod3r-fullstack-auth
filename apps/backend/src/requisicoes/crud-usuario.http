@@ -1,0 +1,12 @@
+POST http:/localhost:4000/registrar
+Content-Type: application/json
+{
+    "nome": "José Inocêncio",
+    "apelido": "Zé Inocêncio",
+    "email": "zeinoc@zmail.com",
+    "senha": "capiledarocha",
+    "ativo": true,
+    "autenticacao": false,
+    "telefone": "+556195556599",
+    "imagem": "http:imagem.de.teste",
+}

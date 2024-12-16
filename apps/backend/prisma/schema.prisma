@@ -16,6 +16,7 @@ datasource db {
 model Usuario {
   id           String      @id @default(uuid())
   nome         String   @db.VarChar(100)
+  apelido      String   @db.VarChar(30)
   email        String   @unique
   senha        String   
   createdAt    DateTime @default(now())
@@ -23,7 +24,9 @@ model Usuario {
   autenticacao Boolean
   telefone     String   @db.Char(14)
   imagem       String 
-  perfis       PerfisDosUsuarios[]
+  perfis       Perfil[]
+
+  PerfisDosUsuarios PerfisDosUsuarios[]
 }
 
 model Perfil {
@@ -34,6 +37,8 @@ model Perfil {
   ativo       Boolean
   usuarios    PerfisDosUsuarios[]
   permissoes  PermissoesDosPerfis[]
+  Usuario     Usuario[]
+  Permissao   Permissao[]
 }
 
 model PerfisDosUsuarios {
@@ -51,7 +56,9 @@ model Permissao {
   descricao   String    @db.VarChar(255)
   createdAt   DateTime  @default(now())
   ativo       Boolean
-  perfis      PermissoesDosPerfis[]
+  perfis      Perfil[]
+
+  PermissoesDosPerfis PermissoesDosPerfis[]
 }
 
 model PermissoesDosPerfis {

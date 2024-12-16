@@ -8,7 +8,7 @@ export class UsuarioPrisma implements RepositorioUsuario {
 
   async salvar(usuario: Usuario): Promise<void> {
     await this.prisma.usuario.upsert({
-      where: { id: usuario.id ?? -1 },
+      where: { id: usuario.id ?? '' },
       update: usuario,
       create: usuario as any,
     });

@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { UsuarioPrisma } from './usuario.prisma';
 import { BcryptProvider } from './bcrypt.provider';
-import { Usuario } from '@repo/core';
+import { LoginUsuario, RegistrarUsuario, Usuario } from '@repo/core';
 import * as jwt from 'jsonwebtoken';
 
 @Controller('auth')
@@ -29,4 +29,3 @@ export class AuthController {
     return jwt.sign(usuario, segredo, { expiresIn: '15m' });
   }
 }
-
