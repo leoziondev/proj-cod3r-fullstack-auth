@@ -1,4 +1,4 @@
-import CasoDeUso from "@core/shared/CasoDeUso"
+import CasoDeUso from '../../shared/CasoDeUso'
 import { Usuario } from "../models"
 import { ProvedorCriptografia, RepositorioUsuario } from "../providers"
 
@@ -17,7 +17,12 @@ export default class RegistrarUsuario implements CasoDeUso<Usuario, void> {
             throw new Error('Usuário já existe')
         }
 
-        const senhaCriptografada = await this.cripto.criptografar(usuario.senha)
+        let senhaCriptografada = undefined
+        
+        if(usuario.senha){
+            senhaCriptografada = await this.cripto.criptografar(usuario.senha)
+        }
+
         const novoUsuario = {
             ...usuario,
             senha: senhaCriptografada,

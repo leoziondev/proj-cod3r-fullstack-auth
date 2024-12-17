@@ -1,5 +1,6 @@
 POST http://localhost:4000/auth/registrar
 Content-Type: application/json
+
 {
     "nome": "José Inocêncio Lamartino Barros",
     "apelido": "Zé Inocêncio",

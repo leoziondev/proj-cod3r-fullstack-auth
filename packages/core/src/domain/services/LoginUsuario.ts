@@ -1,4 +1,5 @@
-import CasoDeUso from "@core/shared/CasoDeUso"
+
+import CasoDeUso from '../../shared/CasoDeUso'
 import { Usuario } from "../models"
 import { RepositorioUsuario, ProvedorCriptografia } from "../providers"
 

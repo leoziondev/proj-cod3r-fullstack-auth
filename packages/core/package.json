@@ -3,15 +3,10 @@
     "version": "1.0.0",
     "private": true,
     "description": "Project students formacao.dev - group Leozinho",
-    "main": "dist/index.js",
-    "files": [
-      "dist",  
-      "src"    
-    ],
     "types": "dist/index.d.ts",
     "scripts": {
-        "build": "tsc",
-        "dev": "ts-node-dev src/index.ts"
+        "dev": "tsup src/index.ts --dts --watch",
+        "build": "tsup src/index.ts --dts --minify"
     },
     "dependencies": {
         "uuid": "^11.0.3"
@@ -22,7 +17,8 @@
         "@types/node": "^20.11.24",  
         "typescript": "^5.5.4",      
         "ts-node-dev": "^2.0.0",     
-        "eslint": "^8.57.0"
+        "eslint": "^8.57.0",
+        "tsup": "^8.2.4"
     }
 }
 
