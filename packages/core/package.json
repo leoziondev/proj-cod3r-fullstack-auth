@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "description": "Project students formacao.dev - group Leozinho",
+    "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
         "dev": "tsup src/index.ts --dts --watch",

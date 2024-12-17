@@ -9,5 +9,14 @@ Content-Type: application/json
     "ativo": true,
     "autenticacao": false,
     "telefone": "+556195556599",
-    "imagem": "http://imagem.de.teste",
+    "imagem": "http://imagem.de.teste"
+}
+
+###
+POST http://localhost:4001/auth/login
+Content-Type: application/json
+
+{
+    "email": "zeinoc@zmail.com",
+    "senha": "capiledarocha"
 }
