@@ -5,8 +5,7 @@ import Usuario from "./Usuario";
 export default interface Perfil extends Id {
     tipo: string,
     descricao: string,
-    createAt: Date,
     ativo: boolean,
-    usuario?: Usuario[],
-    permissoes?: Permissao[]
+    usuarios: Usuario[],
+    permissoes: Permissao[]
 }

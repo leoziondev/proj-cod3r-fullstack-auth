@@ -7,10 +7,8 @@ export class UsuarioPrisma implements RepositorioUsuario {
   constructor(private readonly prisma: PrismaService) {}
 
   async salvar(usuario: Usuario): Promise<void> {
-    await this.prisma.usuario.upsert({
-      where: { id: usuario.id ?? '' },
-      update: usuario,
-      create: usuario as any,
+    await this.prisma.usuario.create({
+      data: usuario as any,
     });
   }
 

@@ -14,7 +14,7 @@ datasource db {
 }
 
 model Usuario {
-  id           String      @id @default(uuid())
+  id           String   @id @default(uuid())
   nome         String   @db.VarChar(100)
   apelido      String   @db.VarChar(30)
   email        String   @unique
@@ -26,7 +26,7 @@ model Usuario {
   imagem       String 
   perfis       Perfil[]
 
-  PerfisDosUsuarios PerfisDosUsuarios[]
+  @@map("usuario")
 }
 
 model Perfil {
@@ -35,37 +35,17 @@ model Perfil {
   descricao   String    @db.VarChar(255)
   createdAt   DateTime  @default(now())
   ativo       Boolean
-  usuarios    PerfisDosUsuarios[]
-  permissoes  PermissoesDosPerfis[]
-  Usuario     Usuario[]
+  usuario     Usuario[]
   Permissao   Permissao[]
 }
 
-model PerfisDosUsuarios {
-  usuarioId  Usuario   @relation(fields: [usuario], references: [id])
-  usuario    String
-  perfilId   Perfil    @relation(fields: [perfil], references: [id])
-  perfil     String
-
-  @@id([usuario, perfil])
-}
 
 model Permissao {
-  id          String      @id @default(uuid())
+  id          String    @id @default(uuid())
   tipo        String
   descricao   String    @db.VarChar(255)
   createdAt   DateTime  @default(now())
   ativo       Boolean
   perfis      Perfil[]
 
-  PermissoesDosPerfis PermissoesDosPerfis[]
-}
-
-model PermissoesDosPerfis {
-  perfilId    Perfil    @relation(fields: [perfil], references: [id])
-  perfil      String
-  permissaoId Permissao @relation(fields: [permissao], references: [id])
-  permissao   String
-
-  @@id([perfil, permissao])
 }
