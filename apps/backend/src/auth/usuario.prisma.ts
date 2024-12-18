@@ -20,15 +20,21 @@ export class UsuarioPrisma implements RepositorioUsuario {
     });
   }
 
-  async recuperarSenha(email: string): Promise<void> {
-    const usuario = await this.prisma.usuario.findUnique({ where: { email } });
-    if (!usuario) throw new BadRequestException('Usuário não encontrado');
-
+  async gerarTokenPorEmail(email: string): Promise<string | null> {
+    const usuarioPrisma = await this.buscarPorEmail(email);
+    if (!usuarioPrisma) throw new BadRequestException('Usuário não encontrado');
     // Gerar token aleatório
     const token = crypto.randomBytes(32).toString('hex');
-    const expiracao = addHours(new Date(), 2); // Token válido por 2 horas
 
-    // Salvar token e expiração na base
+    // Aqui você enviaria o email com o link (simulação)
+    console.log(
+      `Link de recuperação: http://frontend.com/resetar-senha?token=${token}`,
+    );
+    return token;
+  }
+
+  async salvarToken(email: string, token: string): Promise<void> {
+    const expiracao = addHours(new Date(), 2); // Token válido por 2 horas
     await this.prisma.usuario.update({
       where: { email },
       data: {
@@ -36,10 +42,5 @@ export class UsuarioPrisma implements RepositorioUsuario {
         resetTokenExpires: expiracao,
       },
     });
-
-    // Aqui você enviaria o email com o link (simulação)
-    console.log(
-      `Link de recuperação: http://frontend.com/resetar-senha?token=${token}`,
-    );
   }
 }

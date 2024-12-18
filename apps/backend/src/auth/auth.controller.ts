@@ -1,7 +1,12 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { UsuarioPrisma } from './usuario.prisma';
 import { BcryptProvider } from './bcrypt.provider';
-import { LoginUsuario, RegistrarUsuario, Usuario } from '@repo/core';
+import {
+  LoginUsuario,
+  RecuperarSenha,
+  RegistrarUsuario,
+  Usuario,
+} from '@repo/core';
 import * as jwt from 'jsonwebtoken';
 
 @Controller('auth')
@@ -27,5 +32,12 @@ export class AuthController {
 
     const segredo = process.env.JWT_SECRET;
     return jwt.sign(usuario, segredo, { expiresIn: '15m' });
+  }
+
+  @Post('recuperar-senha')
+  async solicitarRecuperacao(@Body('email') email: string) {
+    const casoDeUso = new RecuperarSenha(this.repo);
+    casoDeUso.executar(email);
+    return { message: 'Link de recuperação enviado, caso o email exista.' };
   }
 }

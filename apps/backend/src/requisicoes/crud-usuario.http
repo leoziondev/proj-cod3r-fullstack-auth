@@ -20,3 +20,11 @@ Content-Type: application/json
     "email": "zeinoc@zmail.com",
     "senha": "capiledarocha"
 }
+
+###
+POST http://localhost:4001/auth/recuperar-senha
+Content-Type: application/json
+
+{
+    "email": "zeinoc@zmail.com"
+}
