@@ -14,17 +14,19 @@ datasource db {
 }
 
 model Usuario {
-  id           String   @id @default(uuid())
-  nome         String   @db.VarChar(100)
-  apelido      String   @db.VarChar(30)
-  email        String   @unique
-  senha        String   
-  createdAt    DateTime @default(now())
-  ativo        Boolean
-  autenticacao Boolean
-  telefone     String   @db.Char(14)
-  imagem       String 
-  perfis       Perfil[]
+  id                String   @id @default(uuid())
+  nome              String   @db.VarChar(100)
+  apelido           String   @db.VarChar(30)
+  email             String   @unique
+  senha             String   
+  createdAt         DateTime @default(now())
+  ativo             Boolean
+  resetToken        String?
+  resetTokenExpires DateTime?
+  autenticacao      Boolean
+  telefone          String   @db.Char(14)
+  imagem            String 
+  perfis            Perfil[]
 
   @@map("usuario")
 }

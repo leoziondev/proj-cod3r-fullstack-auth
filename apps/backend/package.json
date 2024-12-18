@@ -28,15 +28,16 @@
     "@repo/core": "workspace:*",
     "@repo/ui": "workspace:*",
     "bcrypt": "^5.1.1",
+    "date-fns": "^4.1.0",
     "jsonwebtoken": "^9.0.2",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
-    "@repo/core": "workspace:*",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",
+    "@repo/core": "workspace:*",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.2",
     "@types/node": "^20.3.1",

@@ -7,6 +7,8 @@ export default interface Usuario extends Id{
     email: string,
     senha?: string,
     ativo: boolean,
+    tokenRecuperacao?: string,
+    dataExpiracaoToken?: Date,
     autenticacao: boolean,
     telefone: string,
     imagem: string,
