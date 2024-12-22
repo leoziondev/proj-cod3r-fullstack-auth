@@ -1,26 +1,31 @@
-import React from 'react'
+import React from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
-export interface UserBoxProps {
-  imagem: string,
-  nome: string,
-  email: string,
-}
+type UserBoxProps = {
+  image?: string;
+  name: string;
+  email: string;
+};
 
+const user: UserBoxProps = {
+  image: "https://github.com/shadcn.png",
+  name: "João Marcos Melchiors",
+  email: "joao@zmail.com",
+};
 
-const UserBox = ({ imagem, nome, email }: UserBoxProps) => {
+const UserBox = () => {
   return (
-    <div id="containerUserBox" 
-      className="
-        justify-self-end
-        flex gap-4 items-center
-    ">
-        <div>{imagem}</div>
-        <div id="containerUserData">
-            <div>{nome}</div>
-            <div>{email}</div>
-        </div>
+    <div className="justify-self-end flex items-center gap-5 border-l-2 pl-8 border-white">
+      <Avatar>
+        <AvatarImage src={user.image} />
+        <AvatarFallback>{user.name}</AvatarFallback>
+      </Avatar>
+      <div>
+        <p className="text-[25px] font-semibold">{user.name}</p>
+        <p className="text-[15px] text-gray-400">{user.email}</p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserBox
+export default UserBox;

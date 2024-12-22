@@ -9,6 +9,15 @@
 
 @layer base {
   :root {
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
     --sizeHeight: 129px;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -36,6 +45,15 @@
     --radius: 0.5rem;
   }
   .dark {
+    --sidebar-background: #09090b;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -67,13 +85,22 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @font-face {
+    font-family: "Poppins";
+    src: url("/fonts/poppins/");
+    font-weight: normal;
+    font-display: swap;
   }
 }
 
-@layer utilities { 
+@layer utilities {
   main {
-    @apply max-w-full max-h-screen
+    @apply max-w-full max-h-screen;
   }
   nav {
     @apply max-w-6xl mx-auto;
@@ -90,7 +117,7 @@
   .text-16 {
     @apply text-[16px] leading-[24px];
   }
-  
+
   .text-24 {
     @apply text-[24px] leading-[30px];
   }
@@ -100,7 +127,7 @@
   }
 
   .flex-center {
-    @apply flex items-center justify-center
+    @apply flex items-center justify-center;
   }
 
   .sidebar {
@@ -114,18 +141,18 @@
 
   .sidebarGrid {
     transition: all 200ms ease-in;
-    @apply grid grid-cols-[1fr_1px] md:grid-cols-[1fr_2fr]
+    @apply grid grid-cols-[1fr_1px] md:grid-cols-[1fr_2fr];
   }
 
   .itemLabelContainer {
     transition: all 100ms;
-    @apply max-md:w-[1px] max-md:h-[1px] max-md:itemLabelContainerAbsolute
+    @apply max-md:w-[1px] max-md:h-[1px] max-md:itemLabelContainerAbsolute;
   }
 
-  .itemLabel{
+  .itemLabel {
     @apply flex items-center text-lg h-10
     max-md:opacity-0 
-    transition-opacity duration-200 ease-in 
+    transition-opacity duration-200 ease-in;
   }
 
   .header {
@@ -138,7 +165,7 @@
     text-2xl sm:text-3xl md:text-4xl lg:text-5xl
     transition-all duration-150 ease-in;
   }
-  
+
   .h2-header {
     @apply scroll-m-20 pb-2 font-semibold tracking-tight
     first:mt-0
@@ -147,7 +174,7 @@
   }
 
   .itemLabelContainerAbsolute {
-    @apply absolute left-0
+    @apply absolute left-0;
   }
 
   /* Auth */
@@ -169,7 +196,7 @@
   }
 
   .form-field {
-    @apply border-none           
+    @apply border-none;
   }
 
   .form-message {
@@ -180,7 +207,7 @@
     @apply text-16 font-semibold w-full 
     bg-green-500 brightness-125 absolute 
     bottom-0 shadow-form
-    hover:bg-red-700 /*não está aplicando*/
+    hover:bg-red-700 /*não está aplicando*/;
   }
 
   .form-link {
@@ -195,11 +222,19 @@
   }
 
   .input-icon {
-    @apply absolute top-3 right-0 mr-2 text-zinc-700
+    @apply absolute top-3 right-0 mr-2 text-zinc-700;
   }
 
   .input-class:focus ~ div {
-    @apply text-white
+    @apply text-white;
   }
+}
 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
