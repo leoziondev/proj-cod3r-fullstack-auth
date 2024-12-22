@@ -1,9 +1,10 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Query } from '@nestjs/common';
 import { UsuarioPrisma } from './usuario.prisma';
 import { BcryptProvider } from './bcrypt.provider';
 import {
   LoginUsuario,
   RecuperarSenha,
+  RedefinirSenha,
   RegistrarUsuario,
   Usuario,
 } from '@repo/core';
@@ -39,5 +40,15 @@ export class AuthController {
     const casoDeUso = new RecuperarSenha(this.repo);
     casoDeUso.executar(email);
     return { message: 'Link de recuperação enviado, caso o email exista.' };
+  }
+
+  @Post('redefinir-senha')
+  async redefinirSenha(
+    @Query('token') token: string,
+    @Body('novaSenha') novaSenha: string,
+  ) {
+    const casoDeUso = new RedefinirSenha(this.repo, this.cripto);
+    casoDeUso.executar(token, novaSenha);
+    return { message: 'Senha redefinida com sucesso.' };
   }
 }

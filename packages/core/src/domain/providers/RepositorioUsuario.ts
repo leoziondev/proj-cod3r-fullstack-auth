@@ -5,4 +5,6 @@ export default interface RepositorioUsuario {
     buscarPorEmail(email: string): Promise<Usuario | null>
     salvarToken(email: string, token: string): Promise<void>
     gerarTokenPorEmail(email: string): Promise<string | null>
+    buscarPorToken(token: string): Promise<Usuario | null>
+    atualizarSenha(id: string, senhaHash: string): Promise<void>
 }

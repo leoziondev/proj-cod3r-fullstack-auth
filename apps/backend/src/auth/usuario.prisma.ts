@@ -28,7 +28,7 @@ export class UsuarioPrisma implements RepositorioUsuario {
 
     // Aqui você enviaria o email com o link (simulação)
     console.log(
-      `Link de recuperação: http://frontend.com/resetar-senha?token=${token}`,
+      `Link de recuperação: http://localhost:4001/auth/redefinir-senha?token=${token}`,
     );
     return token;
   }
@@ -40,6 +40,25 @@ export class UsuarioPrisma implements RepositorioUsuario {
       data: {
         resetToken: token,
         resetTokenExpires: expiracao,
+      },
+    });
+  }
+
+  async buscarPorToken(token: string): Promise<Usuario | null> {
+    const usuario = await this.prisma.usuario.findFirst({
+      where: { resetToken: token, resetTokenExpires: { gt: new Date() } },
+    });
+
+    return usuario;
+  }
+
+  async atualizarSenha(_id: string, _senhaHash: string): Promise<void> {
+    await this.prisma.usuario.update({
+      where: { id: _id },
+      data: {
+        senha: _senhaHash,
+        resetToken: null,
+        resetTokenExpires: null,
       },
     });
   }

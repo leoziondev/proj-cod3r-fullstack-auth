@@ -28,3 +28,11 @@ Content-Type: application/json
 {
     "email": "zeinoc@zmail.com"
 }
+
+###
+POST http://localhost:4001/auth/redefinir-senha?token=465861a3f19b96877ca8c6816dab6958b9c7a12c53382b2683078a46632cc16d
+Content-Type: application/json
+
+{
+    "novaSenha": "sundaymorning"
+}
