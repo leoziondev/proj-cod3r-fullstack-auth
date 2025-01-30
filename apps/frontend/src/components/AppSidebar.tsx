@@ -18,11 +18,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import Logo from "./ui/logo";
 
 import { BsBox } from "react-icons/bs";
 import { FiUser } from "react-icons/fi";
 import { TbReport } from "react-icons/tb";
+import Logo from "./ui/logo";
+
 
 // Menu items.
 const items = [

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Logo from "@/components/ui/logo";
 import { Usuario } from "@repo/core";
 import { string, z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -27,6 +26,7 @@ import {
 import { FaGoogle, FaPhoneSquareAlt, FaRegEye } from "react-icons/fa";
 import Link from "next/link";
 import { LuLoaderCircle, LuUserRoundPen } from "react-icons/lu";
+import Logo from "./ui/logo";
 
 export interface AuthFormProps {
   type: string;
